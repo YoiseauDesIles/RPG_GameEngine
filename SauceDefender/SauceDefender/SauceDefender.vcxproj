@@ -22,7 +22,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5a5acf83-fda9-48b1-857d-e6e0b729d396}</ProjectGuid>
+    <ProjectGuid>{de47d708-fb92-414b-83c4-cbee6fe00b4a}</ProjectGuid>
     <RootNamespace>SauceDefender</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

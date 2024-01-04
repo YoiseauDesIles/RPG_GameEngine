@@ -1,9 +1,13 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "GameObject.h"
+#include "GameMap.h"
 
 GameObject* player;
 GameObject* enemy;
+GameMap* map;
+
+SDL_Renderer* Game::renderer = nullptr;
 
 Game::Game()
 {
@@ -40,8 +44,9 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 		isRunning = false;
 	}
 
-	player = new GameObject("Assets/player.png", renderer, 0, 0);
-	enemy = new GameObject("Assets/enemy.png", renderer, 50, 50);
+	player = new GameObject("Assets/player.png", 0, 0);
+	enemy = new GameObject("Assets/enemy.png", 50, 50);
+	map = new GameMap();
 
 }
 
@@ -69,6 +74,7 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 
+	map->DrawMap();
 	player->render();
 	enemy->render();
 

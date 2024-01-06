@@ -62,5 +62,8 @@
     <ClInclude Include="Game\Vector2D.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Game\ECS\KeyboardController.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

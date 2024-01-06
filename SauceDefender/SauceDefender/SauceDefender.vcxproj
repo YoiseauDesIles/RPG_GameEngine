@@ -148,8 +148,10 @@
     <ClCompile Include="Game\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Components.h" />
-    <ClInclude Include="Game\ECS.h" />
+    <ClInclude Include="Game\ECS\Components.h" />
+    <ClInclude Include="Game\ECS\ECS.h" />
+    <ClInclude Include="Game\ECS\PositionComponent.h" />
+    <ClInclude Include="Game\ECS\SpriteComponent.h" />
     <ClInclude Include="Game\GameObject.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameMap.h" />

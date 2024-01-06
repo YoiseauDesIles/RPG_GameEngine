@@ -2,6 +2,7 @@
 
 #include "Components.h"
 #include "SDL.h"
+#include <string>
 #include "../TextureManager.h"
 
 class SpriteComponent : public Component
@@ -14,7 +15,7 @@ private:
 
 public:
 	SpriteComponent() = default;
-	SpriteComponent(const char* path)
+	SpriteComponent(const std::string& path)
 	{
 		setTexture(path);
 	}
@@ -24,7 +25,7 @@ public:
 		SDL_DestroyTexture(texture);
 	}
 
-	void setTexture(const char* path)
+	void setTexture(const std::string& path)
 	{
 		texture = TextureManager::LoadTexture(path);
 	}
@@ -45,7 +46,6 @@ public:
 		dstRect.x = static_cast<int>(transform->position.x);
 		dstRect.y = static_cast<int>(transform->position.y);
 
-		//dstRect.x = dstRect.y = 0;
 		dstRect.w = transform->width * transform->scale;
 		dstRect.h = transform->height * transform->scale;
 			

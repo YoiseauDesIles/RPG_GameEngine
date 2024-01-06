@@ -18,21 +18,21 @@ public:
 	int speed = 3;
 
 	TransformComponent()
-		: position({0.0f, 0.0f}), velocity({ 0.0f, 0.0f }), height(32), width(32), scale(1)
+		: position(position.Zero()), velocity(velocity.Zero()), height(32), width(32), scale(1)
 	{ 
 	}
 
 	TransformComponent(int sc)
-		: position({ 0.0f, 0.0f }), velocity({ 0.0f, 0.0f }), height(32), width(32), scale(sc)
+		: position(position.Zero()), velocity(velocity.Zero()), height(32), width(32), scale(sc)
 	{
 	}
 	TransformComponent(float x, float y)
-		: position({x, y}), velocity({ 0.0f, 0.0f }), height(32), width(32), scale(1)
+		: position({x, y}), velocity(velocity.Zero()), height(32), width(32), scale(1)
 	{
 	}
 
 	TransformComponent(float x, float y, int h, int w, int sc) 
-		: position({ x, y }), velocity({ 0.0f, 0.0f }), height(h), width(w), scale(sc)
+		: position({ x, y }), velocity(velocity.Zero()), height(h), width(w), scale(sc)
 	{
 	}
 

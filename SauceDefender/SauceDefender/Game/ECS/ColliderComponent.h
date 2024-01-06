@@ -12,10 +12,11 @@ public:
 	SDL_Rect collider;
 	std::string tag;
 
-	TransformComponent* transform;
+	TransformComponent* transform = nullptr;
 
-	ColliderComponent(std::string t): tag(t)
-	{}
+	ColliderComponent(std::string t): tag(t), collider({0, 0, 0, 0})
+	{
+	}
 
 	void init() override
 	{
@@ -24,6 +25,8 @@ public:
 			entity->addComponent<TransformComponent>();
 		}
 		transform = &entity->getComponent<TransformComponent>();
+
+		Game::colliders.push_back(this);
 	}
 
 	void update() override

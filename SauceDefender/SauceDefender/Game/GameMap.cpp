@@ -45,6 +45,9 @@ GameMap::GameMap()
 
 GameMap::~GameMap()
 {
+	SDL_DestroyTexture(m_pGrass);
+	SDL_DestroyTexture(m_pDirt);
+	SDL_DestroyTexture(m_pWater);
 }
 
 void GameMap::LoadMap(int map[20][25])

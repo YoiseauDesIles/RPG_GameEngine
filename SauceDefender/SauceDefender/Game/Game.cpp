@@ -5,6 +5,7 @@
 
 #include "ECS/Components.h"
 #include "Vector2D.h"
+#include "Collision.h"
 
 
 GameMap* map;
@@ -14,6 +15,7 @@ SDL_Event Game::event;
 
 Manager manager;
 auto& player(manager.addEntity());
+auto& wall(manager.addEntity());
 
 Game::Game()
 {
@@ -54,9 +56,14 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 
 	
 	//ECS implementation
-	player.addComponent<TransformComponent>(0, 0);
+	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("Assets/player.png");
 	player.addComponent<KeyboardController>();
+	player.addComponent<ColliderComponent>("player");
+
+	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 2);
+	wall.addComponent<SpriteComponent>("Assets/dirt.png");
+	wall.addComponent<ColliderComponent>("wall");
 
 	
 }
@@ -67,7 +74,7 @@ void Game::handleEvents()
 	SDL_PollEvent(&event);
 	switch (event.type)
 	{
-	SDL_QUIT:
+	case SDL_QUIT:
 		isRunning = false;
 		break;
 	default:
@@ -80,6 +87,17 @@ void Game::update()
 
 	manager.refresh();
 	manager.update();
+
+	if (Collision::AABB(
+		player.getComponent<ColliderComponent>().collider,
+		wall.getComponent<ColliderComponent>().collider))
+	{
+		player.getComponent<TransformComponent>().scale = 1;
+	}
+	else
+	{
+		player.getComponent<TransformComponent>().scale = 2;
+	}
 
 }
 

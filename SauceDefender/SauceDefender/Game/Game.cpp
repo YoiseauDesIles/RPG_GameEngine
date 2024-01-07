@@ -20,10 +20,6 @@ std::vector<ColliderComponent*> Game::colliders;
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
 
-auto& tile0(manager.addEntity());
-auto& tile1(manager.addEntity());
-auto& tile2(manager.addEntity());
-
 Game::Game()
 {
 }
@@ -59,16 +55,10 @@ void Game::init(const char* title, int x, int y, int width, int height, bool ful
 		isRunning = false;
 	}
 
-	//map = new GameMap();
-
-	
+		
 	//ECS implementation
-	tile0.addComponent<TileComponent>(200, 200, 32, 32, 0);
-	tile1.addComponent<TileComponent>(250, 250, 32, 32, 1);
-	tile1.addComponent<ColliderComponent>("dirt");
-	tile2.addComponent<TileComponent>(150, 150, 32, 32, 2);
-	tile2.addComponent<ColliderComponent>("grass");
-
+	GameMap::LoadMap("Assets/p16x16.map", 16, 16);
+	
 	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("Assets/player.png");
 	player.addComponent<KeyboardController>();
@@ -113,7 +103,6 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 
-	//map->DrawMap();
 	manager.draw();
 
 	SDL_RenderPresent(renderer);
@@ -130,4 +119,10 @@ void Game::clean()
 bool Game::running()
 {
 	return isRunning;
+}
+
+void Game::AddTile(int id, int x, int y)
+{
+	auto& tile(manager.addEntity());
+	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 }

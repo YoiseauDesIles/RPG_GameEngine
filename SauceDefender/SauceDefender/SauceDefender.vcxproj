@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\Collision.cpp" />
+    <ClCompile Include="Game\ECS\ECS.cpp" />
     <ClCompile Include="Game\GameObject.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\main.cpp" />

@@ -1,8 +1,6 @@
 #pragma once
 
 #include "ECS.h"
-#include "TransformComponent.h"
-#include "SpriteComponent.h"
 #include "SDL.h"
 
 
@@ -10,41 +8,26 @@ class TileComponent : public Component
 {
 
 public:
-	TransformComponent* transform = nullptr;
-	SpriteComponent* sprite = nullptr;
-
-	SDL_Rect tileRect;
-	int tileID;
-	std::string path;
+	
+	SDL_Texture* texture = nullptr;
+	SDL_Rect srcRect, dstRect;
 
 	TileComponent() = default;
-	TileComponent(int x, int y, int w, int h, int id) 
-		:tileRect({x,y,w,h}), tileID(id)
+	TileComponent(int srcX, int srcY, int xPos, int yPos, std::string path)
+		:srcRect({srcX, srcY, 32, 32}), dstRect({xPos, yPos, 64, 64})
 	{
-
-		switch (tileID)
-		{
-		case 0:
-			path = "Assets/dirt.png";
-			break;
-		case 1:
-			path = "Assets/grass.png";
-			break;
-		case 2:
-			path = "Assets/water.png";
-			break;
-		default:
-			break;
-		}
+		texture = TextureManager::LoadTexture(path);
 	}
 
-	void init() override
+	~TileComponent()
 	{
-		entity->addComponent<TransformComponent>((float)tileRect.x, (float)tileRect.y, tileRect.w, tileRect.h, 1);
-		transform = &entity->getComponent<TransformComponent>();
-
-		entity->addComponent<SpriteComponent>(path);
-		sprite = &entity->getComponent<SpriteComponent>();
+		SDL_DestroyTexture(texture);
 	}
+
+	void draw() override
+	{
+		TextureManager::Draw(texture, srcRect, dstRect, SDL_FLIP_NONE);
+	}
+
 
 };

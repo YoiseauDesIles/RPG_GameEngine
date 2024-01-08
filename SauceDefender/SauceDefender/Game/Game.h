@@ -30,7 +30,7 @@ public:
 
 	bool running();
 
-	static void AddTile(int id, int x, int y);
+	static void AddTile(int srcX, int srcY, int posX, int posY);
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
 	static std::vector<ColliderComponent*> colliders;

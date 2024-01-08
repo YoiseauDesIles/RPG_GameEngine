@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Collision.h" />
+    <ClInclude Include="Game\ECS\Animation.h" />
     <ClInclude Include="Game\ECS\ColliderComponent.h" />
     <ClInclude Include="Game\ECS\Components.h" />
     <ClInclude Include="Game\ECS\ECS.h" />

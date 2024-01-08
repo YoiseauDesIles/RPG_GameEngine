@@ -23,7 +23,7 @@ public:
 	}
 
 	TransformComponent(int sc)
-		: position({400, 320}), velocity(velocity.Zero()), height(32), width(32), scale(sc)
+		: position({0, 0}), velocity(velocity.Zero()), height(32), width(32), scale(sc)
 	{
 	}
 	TransformComponent(float x, float y)

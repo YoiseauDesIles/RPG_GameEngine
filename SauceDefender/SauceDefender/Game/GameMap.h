@@ -4,13 +4,18 @@
 
 class GameMap
 {
+private:
+	const char* mapFilePath;
+	int mapScale;
+	int tileSize;
+	int scaledSize;
+
 public:
-	GameMap();
+	GameMap(const char* mapFilePath, int mapScale, int tileSize);
 	~GameMap();
 
-	static void LoadMap(std::string path, int sizeX, int sizeY);
+	void LoadMap(std::string path, int sizeX, int sizeY);
+	void AddTile(int srcX, int srcY, int posX, int posY);
 	
 
-private:
-	
 };

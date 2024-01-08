@@ -14,8 +14,8 @@ public:
 	Vector2D position;
 
 	TileComponent() = default;
-	TileComponent(int srcX, int srcY, int xPos, int yPos, std::string path)
-		:srcRect({srcX, srcY, 32, 32}), dstRect({xPos, yPos, 64, 64}), position({ (float)xPos, (float)yPos})
+	TileComponent(int srcX, int srcY, int xPos, int yPos, int tsize, int tscale, std::string path)
+		:srcRect({srcX, srcY, tsize, tsize }), dstRect({xPos, yPos, tsize * tscale, tsize  * tscale}), position({ (float)xPos, (float)yPos})
 	{
 		texture = TextureManager::LoadTexture(path);
 	}

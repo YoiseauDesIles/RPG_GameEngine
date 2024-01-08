@@ -11,10 +11,11 @@ public:
 	
 	SDL_Texture* texture = nullptr;
 	SDL_Rect srcRect, dstRect;
+	Vector2D position;
 
 	TileComponent() = default;
 	TileComponent(int srcX, int srcY, int xPos, int yPos, std::string path)
-		:srcRect({srcX, srcY, 32, 32}), dstRect({xPos, yPos, 64, 64})
+		:srcRect({srcX, srcY, 32, 32}), dstRect({xPos, yPos, 64, 64}), position({ (float)xPos, (float)yPos})
 	{
 		texture = TextureManager::LoadTexture(path);
 	}
@@ -22,6 +23,13 @@ public:
 	~TileComponent()
 	{
 		SDL_DestroyTexture(texture);
+	}
+
+
+	void update() override
+	{
+		dstRect.x = position.x - Game::camera.x;
+		dstRect.y = position.y - Game::camera.y;
 	}
 
 	void draw() override

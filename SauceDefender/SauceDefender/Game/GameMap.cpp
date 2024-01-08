@@ -23,7 +23,6 @@ void GameMap::LoadMap(std::string path, int sizeX, int sizeY)
 	{
 		for (int x = 0; x < sizeX; x++)
 		{
-			//TODO verifier pourquoi on met 2 fois get ici
 			mapFile.get(tile);
 			srcY = atoi(&tile) * 32;
 			mapFile.get(tile);

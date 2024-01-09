@@ -1,0 +1,43 @@
+Je réexplique ma question depuis le début.
+
+Quelles est la différence entre l'utilisation de la classe A dans les deux exemples suivants:
+
+//Exemple 1 
+//Fichier A.h
+class A
+{
+
+	void metA();
+};
+
+
+//Fichier A.cpp
+#include "A.h"
+#include "B.h"
+
+extern B objB;
+
+void A::metA()
+{
+	objB.methode();	
+}
+
+
+//Exemple 2
+//Fichier A.h
+class A
+{
+	void metA();
+};
+
+
+//fichier A.cpp
+#include "A.h"
+#include "B.h"
+
+B objB;
+void A::metA()
+{
+	objB.methode();	
+}
+

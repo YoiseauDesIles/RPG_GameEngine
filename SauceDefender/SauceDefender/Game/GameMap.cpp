@@ -7,8 +7,8 @@
 extern Manager manager;
 
 
-GameMap::GameMap(const char* mfp, int ms, int ts)
-	:mapFilePath(mfp), mapScale(ms), tileSize(ts), scaledSize(ms * ts)
+GameMap::GameMap(std::string tID, int ms, int ts)
+	:textureID(tID), mapScale(ms), tileSize(ts), scaledSize(ms * ts)
 {
 
 }
@@ -62,7 +62,7 @@ void GameMap::LoadMap(std::string path, int sizeX, int sizeY)
 void GameMap::AddTile(int srcX, int srcY, int xPos, int yPos)
 {
 	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponent>(srcX, srcY, xPos, yPos, tileSize, mapScale, mapFilePath);
+	tile.addComponent<TileComponent>(srcX, srcY, xPos, yPos, tileSize, mapScale, textureID);
 	tile.addGroup(Game::groupMap);
 }
 

@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ECS.h"
-#include "SDL.h"
-
+#include "../Vector2D.h"
+#include "../Game.h"
+#include "../TextureManager.h"
 
 class TileComponent : public Component
 {
@@ -14,10 +15,10 @@ public:
 	Vector2D position;
 
 	TileComponent() = default;
-	TileComponent(int srcX, int srcY, int xPos, int yPos, int tsize, int tscale, std::string path)
+	TileComponent(int srcX, int srcY, int xPos, int yPos, int tsize, int tscale, std::string id)
 		:srcRect({srcX, srcY, tsize, tsize }), dstRect({xPos, yPos, tsize * tscale, tsize  * tscale}), position({ (float)xPos, (float)yPos})
 	{
-		texture = TextureManager::LoadTexture(path);
+		texture = Game::assets->GetTexture(id);
 	}
 
 	~TileComponent()

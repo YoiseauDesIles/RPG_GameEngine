@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\AssetManager.cpp" />
     <ClCompile Include="Game\Collision.cpp" />
     <ClCompile Include="Game\ECS\ECS.cpp" />
     <ClCompile Include="Game\GameObject.cpp" />
@@ -151,12 +152,14 @@
     <ClCompile Include="Game\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\AssetManager.h" />
     <ClInclude Include="Game\Collision.h" />
     <ClInclude Include="Game\ECS\Animation.h" />
     <ClInclude Include="Game\ECS\ColliderComponent.h" />
     <ClInclude Include="Game\ECS\Components.h" />
     <ClInclude Include="Game\ECS\ECS.h" />
     <ClInclude Include="Game\ECS\KeyboardController.h" />
+    <ClInclude Include="Game\ECS\ProjectileComponent.h" />
     <ClInclude Include="Game\ECS\TileComponent.h" />
     <ClInclude Include="Game\ECS\TransformComponent.h" />
     <ClInclude Include="Game\ECS\SpriteComponent.h" />

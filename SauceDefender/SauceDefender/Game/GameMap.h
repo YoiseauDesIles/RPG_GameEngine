@@ -5,13 +5,13 @@
 class GameMap
 {
 private:
-	const char* mapFilePath;
+	std::string textureID;
 	int mapScale;
 	int tileSize;
 	int scaledSize;
 
 public:
-	GameMap(const char* mapFilePath, int mapScale, int tileSize);
+	GameMap(std::string texID, int mapScale, int tileSize);
 	~GameMap();
 
 	void LoadMap(std::string path, int sizeX, int sizeY);

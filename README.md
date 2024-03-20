@@ -2,12 +2,8 @@ This program is a simple game engine made for a basic 2D RPG.
 It implements the Entity Component System for making a game.
 
 It handles various components such as
- -collision system 
- -camera 
- -projectiles
- -sprite 
- -animation
- -transform
+ 
+ collision system / camera / projectiles / sprite / animation / transform
 
  Here is a screenshot of a simple map made with the engine : 
 

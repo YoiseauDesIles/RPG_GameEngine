@@ -1,5 +1,3 @@
-# SauceDefender
-
 This program is a simple game engine made for a basic 2D RPG.
 It implements the Entity Component System for making a game.
 
